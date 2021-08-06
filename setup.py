@@ -25,16 +25,22 @@ except ImportError as e:
 
 
 setup(
+    name="pkg",
     version="0.0.1",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     cmake_install_dir="src/pkg",
-    cmake_args=[f"-Dpybind11_SEARCH_PATH={pybind11_path}"]
+    cmake_args=[f"-Dpybind11_SEARCH_PATH={pybind11_path}"],
+    zip_safe=False,
+    include_package_data=True,
 )
 
 # from setuptools import setup
 # setup(
+#     name="pkg",
 #     version="0.0.1",
 #     packages=find_packages(where="src"),
 #     package_dir={"": "src"},
+#     zip_safe=False,
+#     include_package_data=True,
 # )
