@@ -13,9 +13,6 @@ except ImportError:
     raise
 
 
-from setuptools import find_packages
-
-
 try:
     import pybind11
     import os
@@ -27,20 +24,8 @@ except ImportError as e:
 setup(
     name="pkg",
     version="0.0.1",
-    packages=find_packages(where="src"),
+    packages=["pkg", "pkg.subpkg"],
     package_dir={"": "src"},
     cmake_install_dir="src/pkg",
-    cmake_args=[f"-Dpybind11_SEARCH_PATH={pybind11_path}"],
-    zip_safe=False,
-    include_package_data=True,
+    cmake_args=["-Dpybind11_SEARCH_PATH={}".format(pybind11_path)],
 )
-
-# from setuptools import setup
-# setup(
-#     name="pkg",
-#     version="0.0.1",
-#     packages=find_packages(where="src"),
-#     package_dir={"": "src"},
-#     zip_safe=False,
-#     include_package_data=True,
-# )

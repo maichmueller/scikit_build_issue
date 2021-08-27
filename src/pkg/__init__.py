@@ -1,3 +1,3 @@
-from ._pkg_lib import *
+from ._pkg import LogicCPP
 
-from .some_funcs import func
+__all__ = ("LogicCPP",)
