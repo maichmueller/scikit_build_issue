@@ -15,8 +15,7 @@ except ImportError:
 
 try:
     import pybind11
-    import os
-    pybind11_path = os.path.join(os.path.dirname(pybind11.get_include()), "share", "cmake")
+    pybind11_path = pybind11.get_cmake_dir()
 except ImportError as e:
     raise e
 
